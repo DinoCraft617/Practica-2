@@ -1,4 +1,4 @@
-name: Node.js CI - Practica-2
+name: Node.js CI - practica-2
 
 on:
   push:
@@ -20,7 +20,10 @@ jobs:
         node-version: '18'
 
     - name: Instalar dependencias
-      run: npm install
+      run: npm ci
+
+    - name: Dar permisos de ejecución a Jest
+      run: chmod +x ./node_modules/.bin/jest
 
     - name: Ejecutar pruebas
-      run: npm test
+      run: npx jest
